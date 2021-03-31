@@ -1,12 +1,12 @@
-c95885784c53d661b1c97bc5b1198171 *DESCRIPTION
+9809ac05f1498b7005f2b27a3f7e1675 *DESCRIPTION
 46581582a1e74bc37fae677726d3cf3d *NAMESPACE
 e64d889eb6aaf8e9c6295b8166999d86 *R/Script_00_CreateMarvelObject.R
-d7480bc83f286c0b5bbfe267b2b6536c *R/Script_01_0_ComputePSI.R
+1dc21d0df67c4d3ecb7026a8bf728783 *R/Script_01_0_ComputePSI.R
 a5b3d3a284208097922e3dfce7ddb19e *R/Script_01_1_ComputePSI_SE.R
 01fd4e266de820ad511858f228fc2771 *R/Script_01_2_ComputePSI_MXE.R
 a3d5402c924169e06da9bb840b9539ff *R/Script_01_3_ComputePSI_A5SS.R
 efdf587e4070a377b3c9b2cb3ed53300 *R/Script_01_4_ComputePSI_A3SS.R
-e5c0d831e3d67652219e6d432f5bf50d *R/Script_01_5_ComputePSI_RI.R
+fa267fff2a8f5f1ded586d72b7681f30 *R/Script_01_5_ComputePSI_RI.R
 37eaa03fc9a159dfff9b994c1c9b6736 *R/Script_02_1_AssignModality.R
 0a156179f6b1873e12cd048e291b40b0 *R/Script_02_2_0_PropModality.R
 5671960446cd059fc398351eecc0de7a *R/Script_02_2_1_PropModality_Doughnut.R
@@ -33,7 +33,7 @@ e3c989fd9c7d3271f307e969171a6c55 *inst/extdata/Data/A3SS_featureData_Validated.t
 6aee6728d273300f674551ef6243bad1 *inst/extdata/Data/A5SS.txt
 12e97647a465e752c26262430f335bb7 *inst/extdata/Data/A5SS_featureData.txt
 b1a4ed026036800e6a0e6e7bbe404ee3 *inst/extdata/Data/A5SS_featureData_Validated.txt
-156dd0a68b65ce6116238366bf1c5f74 *inst/extdata/Data/Counts_per_Base_Validated.txt
+da7213cd194f55ec5d830ee92bb0f4e2 *inst/extdata/Data/Counts_by_Region.txt
 fe0546cdc7f9464d74158beeb9288ab2 *inst/extdata/Data/MXE.txt
 d67db056427f1b8109cc490fab554cd6 *inst/extdata/Data/MXE_featureData.txt
 17847199be042088ba2aa00a2b17973a *inst/extdata/Data/MXE_featureData_Validated.txt
@@ -76,8 +76,8 @@ ff9bd8f924da13748cf91e10a3743028 *inst/extdata/Vignette_Fig_7_Appendix_Single-Ce
 d067c46ea783525578cfad6055741eda *man/ComputePSI.A3SS.Rd
 8a94eb6f539603132e98af196cb68984 *man/ComputePSI.A5SS.Rd
 752ca4dffe2cdd2c772919ff0ec6b94c *man/ComputePSI.MXE.Rd
-b08e20c2112bbd9e414cb75cee717b3f *man/ComputePSI.RI.Rd
-38125f27b4ddc7461600c886a797ae2f *man/ComputePSI.Rd
+396286861bb72331c523a6212d0f674b *man/ComputePSI.RI.Rd
+c9a8919c6e06b0c94b23fb5981be866f *man/ComputePSI.Rd
 5215095e14ec49b95c5d1acbb8da700d *man/ComputePSI.SE.Rd
 3f08f43eca93db3ce799dc48af02fdf2 *man/CreateMarvelObject.Rd
 88618fe05b660048957a838408458e4c *man/IsoSwitch.Rd
