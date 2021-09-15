@@ -21,7 +21,7 @@
 #' @param pc2.min Numeric value. When \code{retrieve.non.outliers} set to \code{TRUE}. To indicate the PC2 value above which to retrieve the sample IDs. Use in conjunction with \code{pc1.max}, \code{pc1.max}, and \code{pc2.max}.
 #' @param pc2.max Numeric value. When \code{retrieve.non.outliers} set to \code{TRUE}. To indicate the PC2 value below which to retrieve the sample IDs. Use in conjunction with \code{pc1.min}, \code{pc2.min}, and \code{pc2.min}.
 #' @param remove.outliers Logical. If set to \code{TRUE}, re-run PCA by only including non-outliers. Use after running the function with \code{retrieve.non.outliers} set to \code{TRUE}.
-
+#' 
 #' @export
 #'
 #' @return An object of class S3 containing all the original slots as inputted by the user in addition to one new slot named \code{MarvelObject$PCA$PSI}. Contains 2D scatterplot in \code{MarvelObject$PCA$PSI$Plot} and the corresponding x- and y-coordinates for each sample in \code{MarvelObject$PCA$PSI$Results}. Additional slow named \code{MarvelObject$PCA$PSI$sample.ids.non.outliers} containing non-outlier sample ID will be returned when \code{retrieve.non.outliers} set to \code{TRUE}.

@@ -33,3 +33,14 @@ Here, we introduce MARVEL (*M*ultimodal *A*pproach to **R**e**VE**a**L** alterna
 
 # 2. Additional Resources
 Tutorials for both plate- and droplet-based alternative splicing analysis using MARVEL can be found here: https://github.com/wenweixiong/MARVEL
+
+# 3. Additional dependencies
+After loading MARVEL package, please (install and) load additional dependencies below before proceeding.
+```{r, eval=FALSE}
+# Load packages
+library(MARVEL)
+
+# Load additional dependencies
+library(BSgenome)
+library(BSgenome.Hsapiens.NCBI.GRCh38)
+```

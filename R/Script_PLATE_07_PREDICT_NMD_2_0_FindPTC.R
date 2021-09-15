@@ -16,9 +16,7 @@
 #'
 #' @author Sean Wen <sean.wenwx@gmail.com>
 #'
-#' @import BSgenome.Hsapiens.NCBI.GRCh38
 #' @importFrom Biostrings DNAStringSet translate reverseComplement
-#' @importFrom BSgenome getSeq
 #'
 #' @examples
 #' # Load input
