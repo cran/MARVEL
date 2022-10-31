@@ -17,7 +17,7 @@
 #'
 #' @return An object of class S3 with new slots \code{MarvelObject$DE$Exp.Spliced$Table}, \code{MarvelObject$DE$Exp.Spliced$Summary}, and \code{MarvelObject$DE$Exp.Spliced$Plot}.
 #'
-#' @import stats
+#' @importFrom plyr join
 #' @import ggplot2
 #' @import scales
 #'
@@ -94,7 +94,7 @@ PlotDEValues.Exp.Spliced <- function(MarvelObject, method, psi.pval=0.1, psi.del
     df <- unique(df)
     
     # Annotate gene pval, log2fc
-    df <- plyr::join(df, df.gene[,c("gene_id", "log2fc", "p.val.adj")], by="gene_id", type="left")
+    df <- join(df, df.gene[,c("gene_id", "log2fc", "p.val.adj")], by="gene_id", type="left")
     df$log2fc[is.na(df$log2fc)] <- 0
     df$p.val.adj[is.na(df$p.val.adj)] <- 1
     

@@ -15,7 +15,7 @@
 #'
 #' @return An object of class S3 containing with new slots \code{MarvelObject$PCA$Exp$Results}, \code{MarvelObject$PCA$Exp$Plot}, and \code{MarvelObject$PCA$Exp$Plot.Elbow}.
 #'
-#' @import stats
+#' @importFrom plyr join
 #' @import methods
 #' @import ggplot2
 #' @importFrom grDevices hcl

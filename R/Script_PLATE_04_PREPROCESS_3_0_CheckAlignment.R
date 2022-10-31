@@ -7,6 +7,7 @@
 #'
 #' @return An object of class S3 with updated slots \code{MarvelObject$SpliceJunction}, \code{MarvelObject$IntronCoverage}, \code{MarvelObject$SplicePheno}, \code{MarvelObject$SpliceFeatureValidated}, and \code{MarvelObject$PSI} or \code{MarvelObject$GenePheno}, \code{MarvelObject$GeneFeature}, and \code{MarvelObject$Gene} are updated for splicing or gene data, respectively.
 #'
+#' @importFrom plyr join
 #' @import methods
 #'
 #' @export

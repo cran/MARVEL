@@ -10,6 +10,8 @@
 #'
 #' @return An object of class S3 with new slot \code{MarvelObject$NMD$Prediction}.
 #'
+#' @importFrom plyr join
+#'
 #' @export
 #'
 #' @examples

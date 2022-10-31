@@ -13,7 +13,7 @@
 #'
 #' @return An object of class S3 containing with new slots \code{MarvelObject$DE$Cor$Table}, \code{MarvelObject$DE$Cor$Plot}, and \code{MarvelObject$DE$Cor$Plot.Stats}.
 #'
-#' @import stats
+#' @importFrom plyr join
 #' @import methods
 #' @import ggplot2
 #'
@@ -96,7 +96,7 @@ IsoSwitch <- function(MarvelObject, method, psi.pval=0.1, psi.delta=0, gene.pval
     # Annotate gene DE results
     de.exp <- de.exp[, c("gene_id", "log2fc", "p.val.adj")]
     names(de.exp)[-1] <- paste(names(de.exp)[-1], ".gene", sep="")
-    de <- plyr::join(de.psi, de.exp, by="gene_id", type="left")
+    de <- join(de.psi, de.exp, by="gene_id", type="left")
         
     # Indicate gene direction
     de$direction.gene <- NA

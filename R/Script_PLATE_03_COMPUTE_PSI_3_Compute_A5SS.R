@@ -7,6 +7,7 @@
 #'
 #' @return An object of class S3 with new slots \code{$SpliceFeatureValidated$A5SS} and \code{$PSI$A5SS}.
 #'
+#' @importFrom plyr join
 #' @import methods
 #'
 #' @export

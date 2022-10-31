@@ -9,7 +9,8 @@
 #'
 #' @return An object of class S3 with new slots \code{MarvelObject$DE$Modality$Table}, \code{MarvelObject$DE$Modality$Plot}, and \code{MarvelObject$DE$Modality$Plot.Stats}.
 #'
-#' @import stats
+#' @importFrom plyr join
+#' @importFrom stats var
 #' @import methods
 #' @import ggplot2
 #'
@@ -186,7 +187,7 @@ ModalityChange <- function(MarvelObject, method, psi.pval, psi.delta=0) {
     cols <- c("tran_id", "event_type", "gene_id", "gene_short_name", "gene_type", "modality.bimodal.adj.g1", "modality.bimodal.adj.g2")
     df.feature <- df.feature[,cols]
     
-    results <- plyr::join(results, df.feature, by="tran_id", type="left")
+    results <- join(results, df.feature, by="tran_id", type="left")
     col.1 <- "modality.change"
     col.2 <- setdiff(names(results), col.1)
     results <- results[,c(col.2, col.1)]

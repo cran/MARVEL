@@ -20,7 +20,7 @@
 #'
 #' @return An object of class S3 with new slot \code{MarvelObject$adhocPlot$PSI}.
 #'
-#' @import stats
+#' @importFrom plyr join
 #' @import methods
 #' @import ggplot2
 #' @import scales
@@ -164,7 +164,7 @@ PlotValues.PSI <- function(MarvelObject, cell.group.list, feature, maintitle="ge
     md$cell.type.label <- factor(md$cell.type.label, levels=names(cell.group.list))
     
     # Annotate group labels
-    df.small <- plyr::join(df.small, md, by="sample.id", type="left")
+    df.small <- join(df.small, md, by="sample.id", type="left")
     
     # Remove un-defined samples
     df.small <- df.small[!is.na(df.small$cell.type.label), ]

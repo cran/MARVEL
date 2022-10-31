@@ -18,7 +18,8 @@
 #'
 #' @return An object of class S3 containing with new slots \code{MarvelObject$PCA$PSI$Results} and  \code{MarvelObject$PCA$PSI$Plot}
 #'
-#' @import stats
+#' @importFrom plyr join
+#' @importFrom stats rnorm runif sd
 #' @import methods
 #' @import ggplot2
 #' @importFrom grDevices hcl

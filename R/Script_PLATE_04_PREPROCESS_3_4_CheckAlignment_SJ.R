@@ -6,6 +6,7 @@
 #'
 #' @return An object of class S3 with updated slots \code{MarvelObject$SplicePheno}, \code{MarvelObject$PSI} and \code{MarvelObject$IntronCounts}.
 #'
+#' @importFrom plyr join
 #' @import methods
 #'
 #' @export

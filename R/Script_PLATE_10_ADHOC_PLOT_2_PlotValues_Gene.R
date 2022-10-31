@@ -12,7 +12,7 @@
 #'
 #' @return An object of class S3 with new slot \code{MarvelObject$adhocPlot$Exp}.
 #'
-#' @import stats
+#' @importFrom plyr join
 #' @import methods
 #' @import ggplot2
 #' @import scales
@@ -97,7 +97,7 @@ PlotValues.Exp <- function(MarvelObject, cell.group.list, feature, maintitle="ge
     md$cell.type.label <- factor(md$cell.type.label, levels=names(cell.group.list))
     
     # Annotate group labels
-    df.small <- plyr::join(df.small, md, by="sample.id", type="left")
+    df.small <- join(df.small, md, by="sample.id", type="left")
     
     # Remove un-defined samples
     df.small <- df.small[!is.na(df.small$cell.type.label), ]
@@ -109,7 +109,7 @@ PlotValues.Exp <- function(MarvelObject, cell.group.list, feature, maintitle="ge
         freq.total <- as.data.frame(table(df.small$cell.type.label), stringsAsFactors=FALSE)
         freq.total <- data.frame("cell.type.label"=freq.total[,1], "freq.total"=freq.total[,2], stringsAsFactors=FALSE)
         
-        n.cells <- plyr::join(freq.expr, freq.total, by="cell.type.label", type="left")
+        n.cells <- join(freq.expr, freq.total, by="cell.type.label", type="left")
         
         n.cells$pct.expr <- round(n.cells$freq.expr / n.cells$freq.total * 100, digits=0)
         

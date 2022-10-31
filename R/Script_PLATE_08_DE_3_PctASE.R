@@ -14,7 +14,7 @@
 #'
 #' @return An object of class S3 with new slots \code{MarvelObject$DE$AbsASE$Table} and \code{MarvelObject$DE$AbsASE$Plot}.
 #'
-#' @import stats
+#' @importFrom plyr join
 #' @import methods
 #' @import ggplot2
 #' @importFrom grDevices hcl
@@ -84,7 +84,7 @@ PctASE <- function(MarvelObject, method, psi.pval, psi.mean.diff, ylabels.size=8
     results <- MarvelObject$DE$PSI$Table[[method[1]]]
     
     # Annotate sig events
-    results <- plyr::join(results, results.sig[,c("tran_id", "direction")], by="tran_id", type="left")
+    results <- join(results, results.sig[,c("tran_id", "direction")], by="tran_id", type="left")
     
     ################################################################################
     
@@ -145,7 +145,7 @@ PctASE <- function(MarvelObject, method, psi.pval, psi.mean.diff, ylabels.size=8
         # Merge
         results.small.1$id <- paste(results.small.1$event_type, "_", results.small.1$direction, sep="")
         results.small.2$id <- paste(results.small.2$event_type, "_", results.small.2$direction, sep="")
-        results <- plyr::join(results.small.1, results.small.2[,c("id", "n")], by="id", type="left")
+        results <- join(results.small.1, results.small.2[,c("id", "n")], by="id", type="left")
         results$id <- NULL
         
     # Set factor levels

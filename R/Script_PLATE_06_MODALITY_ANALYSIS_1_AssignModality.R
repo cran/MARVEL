@@ -16,6 +16,8 @@
 #'
 #' @author Sean Wen <sean.wenwx@gmail.com>
 #'
+#' @importFrom plyr join
+#' @importFrom stats runif
 #' @import methods
 #'
 #' @export

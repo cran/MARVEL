@@ -9,6 +9,8 @@
 #'
 #' @return An object of class S3 with new slot \code{MarvelObject$NMD$GTF}.
 #'
+#' @importFrom plyr join
+#'
 #' @export
 #'
 #' @examples

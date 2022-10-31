@@ -13,7 +13,8 @@
 #'
 #' @return An object of class S3 with new slot \code{MarvelObject$DE$BioPathways$Table}.
 #'
-#' @import stats
+#' @importFrom plyr join
+#' @importFrom stats p.adjust p.adjust.methods
 #' @import methods
 #'
 #' @export

@@ -10,7 +10,9 @@
 #'
 #' @return An object of class S3 with new slots \code{$SpliceFeatureValidated$RI} and \code{$PSI$RI}.
 #'
+#' @importFrom plyr join
 #' @import methods
+#' @importFrom utils txtProgressBar
 #'
 #' @export
 #'
@@ -593,7 +595,7 @@ ComputePSI.RI <- function(MarvelObject, CoverageThreshold, IntronCounts, thread,
        
         # Annotate events
         . <- df[,c("tran_id", "coord.intron")]
-        . <- plyr::join(., df.intron.counts.normalized, by="coord.intron", type="left")
+        . <- join(., df.intron.counts.normalized, by="coord.intron", type="left")
         .$coord.intron <- NULL
         
         row.names(.) <- .$tran_id

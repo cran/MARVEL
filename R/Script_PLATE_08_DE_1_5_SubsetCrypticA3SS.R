@@ -8,9 +8,8 @@
 #'
 #' @return An object of class S3 updated slot \code{MarvelObject$DE$PSI$Table} and new slot \code{MarvelObject$DE$PSI$A3SS.dist.to.ss}.
 #'
-#' @import stats
+#' @importFrom plyr join
 #' @import methods
-#' @import utils
 #' @export
 #'
 #' @examples
@@ -93,14 +92,14 @@ SubsetCrypticA3SS <- function(MarvelObject, method, distance.to.ss=c(1,100)) {
             results <- rbind.data.frame(results.pos, results.neg)
             
             # Annotate splicing metadata
-            results <- plyr::join(results, df.small[,c("tran_id", "event_type", "gene_id", "gene_short_name", "gene_type")], by="tran_id", type="left")
+            results <- join(results, df.small[,c("tran_id", "event_type", "gene_id", "gene_short_name", "gene_type")], by="tran_id", type="left")
             
             cols.1 <- "dist.to.ss"
             cols.2 <- setdiff(names(results), cols.1)
             results <- results[,c(cols.2, cols.1)]
         
         # Annotate original table
-        df <- plyr::join(df, results[,c("tran_id", "dist.to.ss")], by="tran_id", type="left")
+        df <- join(df, results[,c("tran_id", "dist.to.ss")], by="tran_id", type="left")
         
         # Subset cryptic A3SS
         index.1 <- which(df$event_type=="A3SS" & df$dist.to.ss >= distance.to.ss[1] & df$dist.to.ss <= distance.to.ss[2])

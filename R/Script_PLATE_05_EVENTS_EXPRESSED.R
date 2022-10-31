@@ -9,6 +9,7 @@
 #'
 #' @return An object of class S3 with new slots \code{MarvelObject$N.Events$Table} and \code{MarvelObject$N.Events$Plot}.
 #'
+#' @importFrom plyr join
 #' @import methods
 #' @import ggplot2
 #' @import scales

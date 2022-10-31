@@ -10,8 +10,9 @@
 #'
 #' @return An object of class S3 with new slot \code{MarvelObject$SpliceFeature$ALE.PosStrand}.
 #'
+#' @importFrom plyr join
 #' @import methods
-#' @import utils
+#' @importFrom utils txtProgressBar setTxtProgressBar
 #'
 #' @export
 #'
@@ -255,7 +256,7 @@ DetectEvents.ALE.PosStrand <- function(MarvelObject, parsed.gtf=NULL, min.cells=
         names(freq) <- c("gene_id", "n.transcripts")
         
         # Annotate
-        df <- plyr::join(df, freq, by="gene_id", type="left")
+        df <- join(df, freq, by="gene_id", type="left")
         
         # Subset
         df <- df[which(df$n.transcripts >= 2), ]
@@ -333,7 +334,7 @@ DetectEvents.ALE.PosStrand <- function(MarvelObject, parsed.gtf=NULL, min.cells=
     #############################################################
 
     # Annotate gene metadata
-    df.feature <- plyr::join(df, df.feature, by="gene_id", type="left")
+    df.feature <- join(df, df.feature, by="gene_id", type="left")
 
     message(paste(nrow(df.feature), " ALE identified", sep=""))
 

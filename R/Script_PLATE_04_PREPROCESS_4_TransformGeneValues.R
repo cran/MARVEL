@@ -9,6 +9,7 @@
 #'
 #' @return An object of class S3 with updated slot \code{MarvelObject$Exp}.
 #'
+#' @importFrom plyr join
 #' @import methods
 #'
 #' @export

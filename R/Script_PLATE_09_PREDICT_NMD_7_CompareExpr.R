@@ -7,6 +7,7 @@
 #'
 #' @return An object of class S3 new slots \code{MarvelObject$NMD$NMD.Expr$Table}, \code{MarvelObject$NMD$NMD.Expr$Plot}, and \code{MarvelObject$NMD$NMD.Expr$Plot.Stats}.
 #'
+#' @importFrom plyr join
 #' @import ggplot2
 #'
 #' @export
@@ -102,7 +103,7 @@ CompareExpr <- function(MarvelObject, xlabels.size=8) {
     results$event_type <- factor(results$event_type, levels=levels)
     
     # Annotate gene log2fc
-    results <- plyr::join(results, de.gene[,c("gene_id", "gene_short_name", "log2fc")], by="gene_id", type="left")
+    results <- join(results, de.gene[,c("gene_id", "gene_short_name", "log2fc")], by="gene_id", type="left")
     cols <- c("gene_id", "gene_short_name", "log2fc", "event_type", "NMD")
     results <- results[,cols]
     
@@ -120,7 +121,7 @@ CompareExpr <- function(MarvelObject, xlabels.size=8) {
         nmd.true <- .
         
         # Merge
-        n <- plyr::join(nmd.false, nmd.true, by="event_type", type="full")
+        n <- join(nmd.false, nmd.true, by="event_type", type="full")
         n[is.na(n)] <- 0
         xlabels <- paste(n$event_type, "\n(n=", n$n.nmd.false, ",", n$n.nmd.true, ")", sep="")
     

@@ -11,6 +11,7 @@
 #'
 #' @return An object of class S3 with new slots \code{MarvelObject$NMD$AnnoVolcanoPlot$Table} and \code{MarvelObject$NMD$AnnoVolcanoPlot$Plot}.
 #'
+#' @importFrom plyr join
 #' @import ggplot2
 #' @import scales
 #'
@@ -68,7 +69,7 @@ AnnoVolcanoPlot <- function(MarvelObject, anno=FALSE, anno.gene_short_name=NULL,
         }
     
     # Annotate DE gene result table
-    de <- plyr::join(de, df[,c("gene_id", "NMD", "event_type")], by="gene_id", type="left")
+    de <- join(de, df[,c("gene_id", "NMD", "event_type")], by="gene_id", type="left")
     de$NMD[is.na(de$NMD)] <- "NOS"
     de$NMD[which(de$NMD==TRUE)] <- de$event_type[which(de$NMD==TRUE)]
     

@@ -9,6 +9,7 @@
 #'
 #' @return An object of class S3 containing with new slots \code{$SpliceFeatureValidated$A3SS} and \code{$PSI$A3SS}.
 #'
+#' @importFrom plyr join
 #' @import methods
 #'
 #' @export

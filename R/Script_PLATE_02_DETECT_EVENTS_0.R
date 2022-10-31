@@ -10,6 +10,7 @@
 #'
 #' @return An object of class S3 with new slot \code{MarvelObject$SpliceFeature$ALE} or \code{MarvelObject$SpliceFeature$AFE}.
 #'
+#' @importFrom plyr join
 #' @import methods
 #'
 #' @export

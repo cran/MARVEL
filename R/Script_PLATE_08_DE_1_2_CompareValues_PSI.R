@@ -21,9 +21,10 @@
 #'
 #' @return An object of class data frame containing the output of the differential splicing analysis.
 #'
-#' @import stats
+#' @importFrom plyr join
+#' @importFrom stats ks.test na.omit p.adjust p.adjust.methods t.test wilcox.test
 #' @import methods
-#' @import utils
+#' @importFrom utils txtProgressBar setTxtProgressBar
 #'
 #' @export
 #'
@@ -413,7 +414,7 @@ CompareValues.PSI <- function(MarvelObject, cell.group.g1, cell.group.g2, downsa
     }
     
     # Annotate with feature metadata
-    results <- plyr::join(results, df.feature, by="tran_id", type="left")
+    results <- join(results, df.feature, by="tran_id", type="left")
     cols.1 <- names(df.feature)
     cols.2 <- setdiff(names(results), names(df.feature))
     results <- results[,c(cols.1, cols.2)]
@@ -454,8 +455,8 @@ CompareValues.PSI <- function(MarvelObject, cell.group.g1, cell.group.g2, downsa
             # Annotate
             names(modality.g1)[which(names(modality.g1)=="modality.bimodal.adj")] <- "modality.bimodal.adj.g1"
             names(modality.g2)[which(names(modality.g2)=="modality.bimodal.adj")] <- "modality.bimodal.adj.g2"
-            results <- plyr::join(results, modality.g1[,c("tran_id", "modality.bimodal.adj.g1")], by="tran_id", type="left")
-            results <- plyr::join(results, modality.g2[,c("tran_id", "modality.bimodal.adj.g2")], by="tran_id", type="left")
+            results <- join(results, modality.g1[,c("tran_id", "modality.bimodal.adj.g1")], by="tran_id", type="left")
+            results <- join(results, modality.g2[,c("tran_id", "modality.bimodal.adj.g2")], by="tran_id", type="left")
 
             # Check for non-matches
             sum(is.na(results$modality.bimodal.adj.g1))
@@ -490,7 +491,7 @@ CompareValues.PSI <- function(MarvelObject, cell.group.g1, cell.group.g2, downsa
                     . <- data.frame("tran_id"=names(.), "n.cells.outliers.g1"=as.numeric(.), stringsAsFactors=FALSE)
                     
                     # Annotate result table
-                    results.small <- plyr::join(results.small, ., by="tran_id", type="left")
+                    results.small <- join(results.small, ., by="tran_id", type="left")
                     
                 # Group 2
                     # Subset matrix
@@ -501,7 +502,7 @@ CompareValues.PSI <- function(MarvelObject, cell.group.g1, cell.group.g2, downsa
                     . <- data.frame("tran_id"=names(.), "n.cells.outliers.g2"=as.numeric(.), stringsAsFactors=FALSE)
                     
                     # Annotate result table
-                    results.small <- plyr::join(results.small, ., by="tran_id", type="left")
+                    results.small <- join(results.small, ., by="tran_id", type="left")
                     
                 # Re-code p-values below threshold
                 index <- which(results.small$n.cells.outliers.g1 < n.cells.outliers & results.small$n.cells.outliers.g2 < n.cells.outliers)
@@ -539,7 +540,7 @@ CompareValues.PSI <- function(MarvelObject, cell.group.g1, cell.group.g2, downsa
                     . <- data.frame("tran_id"=names(.), "n.cells.outliers.g1"=as.numeric(.), stringsAsFactors=FALSE)
                     
                     # Annotate result table
-                    results.small <- plyr::join(results.small, ., by="tran_id", type="left")
+                    results.small <- join(results.small, ., by="tran_id", type="left")
                     
                 # Group 2
                     # Subset matrix
@@ -550,7 +551,7 @@ CompareValues.PSI <- function(MarvelObject, cell.group.g1, cell.group.g2, downsa
                     . <- data.frame("tran_id"=names(.), "n.cells.outliers.g2"=as.numeric(.), stringsAsFactors=FALSE)
                     
                     # Annotate result table
-                    results.small <- plyr::join(results.small, ., by="tran_id", type="left")
+                    results.small <- join(results.small, ., by="tran_id", type="left")
                     
                 # Re-code p-values below threshold
                 index <- which(results.small$n.cells.outliers.g1 < n.cells.outliers & results.small$n.cells.outliers.g2 < n.cells.outliers)

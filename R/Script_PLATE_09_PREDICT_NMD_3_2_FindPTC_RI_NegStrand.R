@@ -7,6 +7,9 @@
 #' @param gene_id Character string. Vector of \code{gene_id} corresponding to the \code{tran_id} argument.
 #'
 #' @return A data frame of transcripts containing splicing events meeting the \code{psi.de.sig} and \code{psi.de.diff} criteria are categorised based on the presence or absence of PTCs.
+#'
+#' @importFrom plyr join
+#'
 #' @export
 #'
 #' @examples

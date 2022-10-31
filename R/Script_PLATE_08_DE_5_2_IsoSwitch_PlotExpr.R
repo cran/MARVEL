@@ -7,7 +7,7 @@
 #'
 #' @return An object of class S3 containing with new slots \code{MarvelObject$DE$Cor$PSIvsExpr$Plot}.
 #'
-#' @import stats
+#' @importFrom plyr join
 #' @import methods
 #' @import ggplot2
 #'

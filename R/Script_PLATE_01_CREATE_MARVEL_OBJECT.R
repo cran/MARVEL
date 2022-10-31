@@ -14,6 +14,7 @@
 #'
 #' @return An object of class S3.
 #'
+#' @importFrom plyr join
 #' @import methods
 #'
 #' @export

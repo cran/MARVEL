@@ -19,9 +19,10 @@
 #'
 #' @return An object of class S3 new slot \code{MarvelObject$DE$Exp$Table}.
 #'
-#' @import stats
+#' @importFrom plyr join
+#' @importFrom stats ks.test na.omit p.adjust p.adjust.methods t.test wilcox.test
 #' @import methods
-#' @import utils
+#' @importFrom utils txtProgressBar setTxtProgressBar
 #' @export
 #'
 #' @examples
@@ -297,7 +298,7 @@ CompareValues.Exp <- function(MarvelObject, cell.group.g1=NULL, cell.group.g2=NU
                             
             # Compute gene detection rate
             .$cngeneson <- scale(.$n.genes)
-            cdata <- plyr::join(cdata, ., by="sample.id", type="left")
+            cdata <- join(cdata, ., by="sample.id", type="left")
             
             # Format for MAST
             names(cdata)[which(names(cdata)=="sample.id")] <- "wellKey"
@@ -330,7 +331,7 @@ CompareValues.Exp <- function(MarvelObject, cell.group.g1=NULL, cell.group.g2=NU
         index <- which(summaryDt$contrast=='conditiong2' & summaryDt$component=='logFC')
         summaryDt.small.2 <- summaryDt[index, c("primerid", "coef", "ci.hi", "ci.lo")]
         
-        fcHurdle <- plyr::join(summaryDt.small.1, summaryDt.small.2, by="primerid")
+        fcHurdle <- join(summaryDt.small.1, summaryDt.small.2, by="primerid")
         
         fcHurdle <- as.data.frame(fcHurdle)
         
@@ -390,7 +391,7 @@ CompareValues.Exp <- function(MarvelObject, cell.group.g1=NULL, cell.group.g2=NU
                                     stringsAsFactors=FALSE
                                     )
             
-            results <- plyr::join(results, results.2, by="gene_id", type="left")
+            results <- join(results, results.2, by="gene_id", type="left")
             
             # Match column order
             cols <- c("gene_id",
@@ -410,7 +411,7 @@ CompareValues.Exp <- function(MarvelObject, cell.group.g1=NULL, cell.group.g2=NU
     results$p.val.adj <- p.adjust(results$p.val, method=method.adjust, n=length(results$p.val))
     
     # Annotate with feature metadata
-    results <- plyr::join(results, df.feature, by="gene_id", type="left")
+    results <- join(results, df.feature, by="gene_id", type="left")
     cols.1 <- names(df.feature)
     cols.2 <- setdiff(names(results), names(df.feature))
     results <- results[,c(cols.1, cols.2)]

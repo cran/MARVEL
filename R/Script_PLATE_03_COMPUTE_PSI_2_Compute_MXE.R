@@ -13,6 +13,7 @@
 #'
 #' @author Sean Wen <sean.wenwx@gmail.com>
 #'
+#' @importFrom plyr join
 #' @import methods
 #'
 #' @export

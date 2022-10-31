@@ -9,6 +9,7 @@
 #'
 #' @return An object of class S3 with new slots \code{MarvelObject$Modality$Prop$DoughnutChart$Table} and \code{MarvelObject$Modality$Prop$DoughnutChart$Plot}.
 #'
+#' @importFrom plyr join
 #' @import methods
 #' @import ggplot2
 #'
